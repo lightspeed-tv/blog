@@ -3,10 +3,10 @@
     a:visited {
         text-decoration: none;
         transition: color 0.2s ease-in-out;
-        color: #c786ff;
+        color: #40DEF3;
 
         &:hover {
-            color: #e3c4ff;
+            color: #bdf7ff;
         }
     }
 
@@ -23,7 +23,7 @@
 
     tr:nth-child(even),
     th {
-        background-color: #28202f;
+        background-color: #161826;
     }
 
     h1,
@@ -32,8 +32,8 @@
     h4,
     h5,
     h6 {
-        font-weight: 300;
-        color: #cab8fd;
+        font-weight: 400;
+        color: #B170FF;
     }
 
     img {
@@ -49,19 +49,19 @@
     }
 
     blockquote {
-        border-left: 1px solid #c786ff;
+        border-left: 1px solid #40DEF3;
         padding-left: 20px;
         padding-top: 1px;
         padding-bottom: 1px;
         margin: 20px 0;
-        color: #c786ff;
+        color: #40DEF3;
 
         a:link,
         a:visited {
-            color: #d29fff;
+            color: #40DEF3;
 
             &:hover {
-                color: #dfbbff;
+                color: #40DEF3;
             }
         }
     }
@@ -87,27 +87,27 @@
         border-radius: 15px;
 
         &.adm-type-generic {
-            background-color: #28202f;
+            background-color: #161826;
         }
 
         &.adm-type-warning {
             background-color: #ffb86c;
-            color: #28202f;
+            color: #161826;
         }
 
         &.adm-type-danger {
             background-color: #ff6b6b;
-            color: #28202f;
+            color: #161826;
         }
 
         &.adm-type-info {
             background-color: #c786ff;
-            color: #28202f;
+            color: #161826;
         }
 
         &.adm-type-success {
             background-color: #a3d65c;
-            color: #28202f;
+            color: #161826;
         }
 
         .adm-heading {

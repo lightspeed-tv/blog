@@ -1,7 +1,5 @@
 import { getAllPosts, getPostBySlug } from '../../lib/posts'
 import markdownToHtml from '../../lib/markdown'
-import { useRouter } from 'next/router'
-import Navbar from '../../components/Navbar'
 import styled from 'styled-components'
 import dynamic from 'next/dynamic'
 import Head from "next/head"
@@ -9,45 +7,78 @@ import { formatDistanceToNow } from 'date-fns'
 import LatestGrid from '../../components/display/LatestGrid'
 import AuthorDisplay from '../../components/display/AuthorDisplay'
 import LatestPostDisplay from '../../components/display/LatestPostDisplay'
+import Link from "next/link"
 const Anime = dynamic(() => import('react-anime'), { ssr: false })
 
-const PostHeader = styled.header`
+const Nav = styled.nav`
     display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    min-height: 40vh;
-    background-color: #28202F;
-    flex-direction: column;
-    user-select: none;
+    padding: 32px;
+    flex-shrink: 0
+`
 
-    @media (max-width: 768px) {
-        min-height: 70vh;
+const Logo = styled.img`
+    cursor: pointer;
+    transition: .25s ease-in-out;
+    opacity: 0.8;
+    :hover { opacity: 1; transform: scale(1.03) }
+`
+const Title = styled.span`
+    cursor: pointer;
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 400;
+    margin-top: -1.5px;
+    padding-left: 12px;
+    letter-spacing: -1px;
+    color: #fff;
+    opacity: 0.8;
+    transition: .25s ease-in-out;
+    transform: translateZ(0) scale(1.0,1.0);
+    :hover { opacity: 1; transform: scale(1.03) }
+`
+
+const NavLink = styled(Link)`
+    :link,
+    :visited {
+        color: #fff;
+        text-decoration: none;
     }
 `
 
+const PostHeader = styled.header`
+    display: flex;
+    align-items: center;
+    background-color: #161826;
+    flex-direction: row;
+    user-select: none;
+`
+
+const PostInfo = styled.div`
+    text-align: left;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1
+`
+
 const PostTitle = styled.h1`
-    max-width: 1000px;
-    text-align: center;
-    color: #9179F0;
-    font-size: 2.5rem;
-    font-weight: 400;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0;
 `
 
 const PostDate = styled.div`
-    max-width: 800px;
-    text-align: center;
-    color: #CAB8FD;
-    font-size: 1.2rem;
-    font-weight: 400;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 300;
+    flex-shrink: 0;
+    padding-right: 32px
 `
 
 const PostDescription = styled.div`
-    max-width: 800px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
-    margin-top: 1.5rem;
-    text-align: center;
 `
 
 const PostContent = styled.main`
@@ -61,7 +92,7 @@ const PostContent = styled.main`
 `
 
 const PostAuthor = styled.footer`
-    background-color: #28202f;
+    background-color: #161826;
     font-size: 1.2rem;
     font-weight: 400;
     padding: 1.2em;
@@ -69,7 +100,7 @@ const PostAuthor = styled.footer`
 `
 
 const PostAuthorHeader = styled.h3`
-    color: #9179F0;
+    color: #40DEF3;
     font-size: 1rem;
     font-weight: 400;
     margin: 0;
@@ -78,45 +109,25 @@ const PostAuthorHeader = styled.h3`
 `
 
 const Post = ({ post, latestPosts }: { post: any, latestPosts: any }) => {
-    const router = useRouter()
-
-    if (!router.isFallback && !post?.slug) {
-        return (
-            <>
-                <Head>
-                    <meta property="og:title" content="Post not found" />
-                    <meta property="og:image" content="https://infi.sh/opengraph.png" />
-                    <meta property="og:description" content="Sorry for that" />
-                </Head>
-                <Navbar />
-                <PostHeader>
-                    <Anime easing={'easeOutElastic(1, .8)'} translateY={[30, 0]} opacity={[0, 1]} delay={400}>
-                        {/*
-                          * Yep, we're casually reusing components despite them not fitting this purpose.
-                          * The user will see the regular, global 404 page anyways.
-                          */}
-                        <PostTitle>Post not found</PostTitle>
-                        <PostDate>Sorry for that</PostDate>
-                    </Anime>
-                </PostHeader>
-            </>
-        )
-    }
-
     return (
         <>
             <Head>
                 <meta property="og:title" content={post.title} />
-                <meta property="og:image" content={post.ogImage ?? "https://infi.sh/opengraph.png"} />
                 <meta property="og:description" content={post.description + ` (${post.readingTime})`} />
             </Head>
-            <Navbar />
             <PostHeader>
-                <Anime easing={'easeOutElastic(1, .8)'} translateY={[30, 0]} opacity={[0, 1]} delay={400}>
-                    <PostTitle>{post.title}</PostTitle>
+                
+                    
+                    <Nav>
+                    <NavLink href="https://lightspeed.tv"><Logo height="32px" src="https://lightspeed.tv/assets/hero/logo.svg" /></NavLink>
+                    <NavLink href="/"><Title>blog</Title></NavLink>
+                    </Nav>
+
+                    <PostInfo>
+                        <PostTitle>{post.title}</PostTitle>
+                        <PostDescription>{post.description}</PostDescription>
+                    </PostInfo>
                     <PostDate>{formatDistanceToNow(new Date(post.date))} ago · {post.readingTime}</PostDate>
-                    <PostDescription>{post.description}</PostDescription>
-                </Anime>
             </PostHeader>
             <PostContent>
                 <Anime easing={'easeOutElastic(1, .8)'} translateY={[30, 0]} opacity={[0, 1]} delay={500}>

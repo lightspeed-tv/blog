@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { ChevronDown } from "@styled-icons/boxicons-regular"
 import dynamic from 'next/dynamic'
 /*
  * needed because Anime needs to have
@@ -11,10 +10,10 @@ const IntroductionWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 300px   ;
     width: 100vw;
-    background-color: #28202F;
-    color: #9179F0;
+    background-color: #161826;
+    color: #FFFFFF;
     cursor: default;
     flex-direction: column;
 `
@@ -39,7 +38,7 @@ const NameIntroduction = styled.div`
 
 const EmphasizedNameIntroduction = styled(NameIntroduction)`
     font-weight: 900;
-    color: #CAB8FD;
+    color: #40DEF3;
 `
 
 const GitHubSection = styled.div`
@@ -50,20 +49,9 @@ const GitHubSection = styled.div`
 `
 
 const GitHubLink = styled.a`
-    color: #9179F0;
+    color: #40DEF3;
     text-decoration: none;
     display: block;
-`
-
-const ScrollChevron = styled(ChevronDown)`
-    height: 50px;
-    color: #9883ee;
-    margin-bottom: 10px;
-    cursor: pointer;
-
-    @media (max-width: 768px) {
-        display: none;
-    }
 `
 
 const InitialIntroduction = () => {
@@ -83,11 +71,9 @@ const InitialIntroduction = () => {
                 <Anime easing={'easeOutElastic(1, .8)'} translateY={[30, 0]} opacity={[0, 1]} delay={500}>
                     <GitHubSection>
                         <GitHubLink
-                            href="https://github.com/infi"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="https://lightspeed.tv"
                         >
-                            github.com/infi »
+                            return to lightspeed.tv
                         </GitHubLink>
                         <Anime easing={'easeOutElastic(1, .8)'} translateY={[30, 0]} opacity={[0, 1]} delay={510}>
                             or scroll down
@@ -95,16 +81,6 @@ const InitialIntroduction = () => {
                     </GitHubSection>
                 </Anime>
             </Introduction>
-            <Anime easing={'easeOutExpo'} translateY={[100, 0]} opacity={[0, 1]} delay={1000}>
-                <ScrollChevron
-                    onClick={() => {
-                        window.scrollTo({
-                            top: window.innerHeight,
-                            behavior: 'smooth'
-                        })
-                    }}
-                />
-            </Anime>
         </IntroductionWrapper >
     )
 }
