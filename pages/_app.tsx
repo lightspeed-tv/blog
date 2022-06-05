@@ -7,11 +7,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
         <>
             <Head>
-                <title>Infi</title>
+                <title>Lightspeed Blog</title>
                 <meta property="og:locale" content="en" />
-                <meta property="og:site_name" content="Infi" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="theme-color" content="#28202f" />
+                <meta name="theme-color" content="#11131f" />
                 <link rel="icon" href="/favicon.png" type="image/png" />
             </Head>
             <Component {...pageProps} />

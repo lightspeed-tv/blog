@@ -6,7 +6,7 @@ import Link from "next/link"
 const PostDisplay = styled.div`
     padding: 20px;
     border-radius: 15px;
-    background-color: #28202F;
+    background-color: #161826;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -15,7 +15,7 @@ const PostDisplay = styled.div`
 const PostTitle = styled.h2`
     font-size: 1.5rem;
     font-weight: 400;
-    color: #9179F0;
+    color: #40DEF3;
     margin: 0;
     padding: 0;
     user-select: none;
@@ -25,7 +25,7 @@ const PostTitle = styled.h2`
 const PostDate = styled.p`
     font-size: 1rem;
     font-weight: 400;
-    color: #CAB8FD;
+    color: #fff;
     margin: 0;
     padding: 0;
     user-select: none;
@@ -34,7 +34,7 @@ const PostDate = styled.p`
 const PostDescription = styled.p`
     font-size: 1.25rem;
     font-weight: 400;
-    color: #dfd3ff;
+    color: #fff;
     margin-top: 15px;
     margin-bottom: 15px;
     padding: 0;
@@ -43,7 +43,7 @@ const PostDescription = styled.p`
 const PostReadMore = styled.a`
     font-size: 1rem;
     font-weight: 400;
-    color: #9179F0;
+    color: #40DEF3!important;
     text-decoration: none;
     margin: 0;
     padding: 0;

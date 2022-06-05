@@ -33,7 +33,7 @@
     h5,
     h6 {
         font-weight: 400;
-        color: #B170FF;
+        color: #40DEF3;
     }
 
     img {
@@ -88,6 +88,7 @@
 
         &.adm-type-generic {
             background-color: #161826;
+            color: #fff;
         }
 
         &.adm-type-warning {
@@ -101,8 +102,8 @@
         }
 
         &.adm-type-info {
-            background-color: #c786ff;
-            color: #161826;
+            background-color: #161826;
+            color: #fff;
         }
 
         &.adm-type-success {

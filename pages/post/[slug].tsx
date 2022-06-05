@@ -25,10 +25,8 @@ const Logo = styled.img`
 const Title = styled.span`
     cursor: pointer;
     font-size: 26px;
-    line-height: 32px;
     font-weight: 400;
-    margin-top: -1.5px;
-    padding-left: 12px;
+    padding-left: 8px;
     letter-spacing: -1px;
     color: #fff;
     opacity: 0.8;

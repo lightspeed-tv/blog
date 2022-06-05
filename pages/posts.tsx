@@ -2,7 +2,6 @@ import { getAllPosts } from '../lib/posts'
 import Navbar from '../components/Navbar'
 import styled from 'styled-components'
 import dynamic from 'next/dynamic'
-import Head from "next/head"
 import LatestGrid from '../components/display/LatestGrid'
 import { Post } from '../lib/types'
 import PostListDisplay from '../components/display/PostListDisplay'
@@ -14,7 +13,7 @@ const PostHeader = styled.div`
     align-items: center;
     align-content: center;
     min-height: 40vh;
-    background-color: #28202F;
+    background-color: #161826;
     flex-direction: column;
     user-select: none;
 
@@ -26,7 +25,7 @@ const PostHeader = styled.div`
 const PageTitle = styled.h1`
     max-width: 1000px;
     text-align: center;
-    color: #9179F0;
+    color: #fff;
     font-size: 2.5rem;
     font-weight: 400;
 `
@@ -44,17 +43,7 @@ const PostContent = styled.div`
 const AllPosts = ({ posts, pinnedPosts }: { posts: Post[], pinnedPosts: Post[] }) => {
     return (
         <>
-            <Head>
-                <meta property="og:title" content="Posts" />
-                <meta property="og:image" content="/api/opengraph/text?q=All%20Posts" />
-                <meta property="og:description" content="All editorial material on infi.sh." />
-            </Head>
             <Navbar />
-            <PostHeader>
-                <Anime easing={'easeOutElastic(1, .8)'} translateY={[30, 0]} opacity={[0, 1]} delay={400}>
-                    <PageTitle>Posts</PageTitle>
-                </Anime>
-            </PostHeader>
             <PostContent className="markdown-dynamic-content">
                 {pinnedPosts.length > 0 && <Anime easing={'easeOutElastic(1, .8)'} translateY={[30, 0]} opacity={[0, 1]} delay={500}>
                     <LatestGrid component={PostListDisplay} items={pinnedPosts} heading="Pinned" />

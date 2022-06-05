@@ -6,10 +6,9 @@ const Anime = dynamic(() => import('react-anime'), { ssr: false })
 
 const NavbarWrapper = styled.nav`
     display: flex;
-    justify-content: space-between;
     padding: 32px;
-    position: absolute;
-    top: 0;
+    flex-shrink: 0;
+    background-color: #161826;
 `
 
 const Logo = styled.img`
@@ -23,12 +22,14 @@ const Logo = styled.img`
 const Title = styled.span`
     cursor: pointer;
     font-size: 26px;
-    line-height: 32px;
     font-weight: 400;
-    margin-top: -2px;
-    padding-left: 12px;
-    letter-spacing: -1px
-`
+    padding-left: 8px;
+    letter-spacing: -1px;
+    color: #fff;
+    opacity: 0.8;
+    transition: .25s ease-in-out;
+    transform: translateZ(0) scale(1.0,1.0);
+    :hover { opacity: 1; transform: scale(1.03) }`
 
 const NavbarLeft = styled.div`
     display: flex;

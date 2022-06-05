@@ -5,6 +5,7 @@ import { Post, Project } from "../lib/types"
 import LatestPostDisplay from "../components/display/LatestPostDisplay"
 import { getAllProjects } from "../lib/projects"
 import LatestProjectDisplay from "../components/display/LatestProjectDisplay"
+import Navbar from '../components/Navbar'
 
 type Props = {
     allPosts: Post[],
@@ -14,16 +15,16 @@ type Props = {
 const Home = ({ allPosts, allProjects }: Props) => {
     return (
         <>
-            <InitialIntroduction />
+            <Navbar />
             <LatestGrid
                 items={allPosts}
                 component={LatestPostDisplay}
-                heading={"Latest Posts"}
+                heading={"Recent Updates"}
                 allItemsLink={"/posts"} />
             <LatestGrid
                 items={allProjects}
                 component={LatestProjectDisplay}
-                heading={"Latest Projects"}
+                heading={"Articles & Tutorials"}
                 useCompactColumns={true}
                 allItemsLink={"/projects"} />
         </>
